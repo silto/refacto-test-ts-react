@@ -1,6 +1,8 @@
 import { DomainsState, DomainsAction, RECEIVE_DOMAINS } from './types'
 
-const initialState: DomainsState = []
+const initialState: DomainsState = {
+  rawDomains: [],
+}
 
 export function domainsReducer(
   state = initialState,
@@ -8,7 +10,9 @@ export function domainsReducer(
 ): DomainsState {
   switch (action.type) {
     case RECEIVE_DOMAINS:
-      return action.domains
+      return {
+        rawDomains: action.domains,
+      }
     default:
       return state
   }
