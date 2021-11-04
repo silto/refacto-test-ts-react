@@ -1,4 +1,9 @@
-import { getDomains } from "./selectors";
+import {
+  getDomains,
+  getCountries,
+  getClassifications,
+  getSubClassifications,
+} from "./selectors";
 import { AppState } from "../store";
 
 
@@ -9,6 +14,9 @@ describe('selectors', () => {
         'SU_PE-RTE',
         'ST_TE-STT'
       ],
+      countries: ['SU', 'ST'],
+      classifications: ['PE', 'TE'],
+      subClassifications: ['RTE', 'STT'],
     }
   }
 
@@ -21,6 +29,27 @@ describe('selectors', () => {
         'SU_PE-RTE',
         'ST_TE-STT'
       ])
+    })
+  })
+  describe('getCountries', () => {
+    it('should return the countries extracted form the domains', () => {
+      const countries = getCountries(state);
+
+      expect(countries).toEqual(['SU', 'ST'])
+    })
+  })
+  describe('getClassifications', () => {
+    it('should return the classifications extracted form the domains', () => {
+      const classifications = getClassifications(state);
+
+      expect(classifications).toEqual(['PE', 'TE'])
+    })
+  })
+  describe('getSubClassifications', () => {
+    it('should return the subclassifications extracted form the domains', () => {
+      const subClassifications = getSubClassifications(state);
+
+      expect(subClassifications).toEqual(['RTE', 'STT'])
     })
   })
 })

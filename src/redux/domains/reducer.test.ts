@@ -10,18 +10,27 @@ describe('reducers', () => {
 
       expect(newState).toEqual({
         rawDomains: [],
+        countries: [],
+        classifications: [],
+        subClassifications: [],
       })
     });
 
     it('should store the domains', () => {
       const oldState: DomainsState = {
         rawDomains: [],
+        countries: [],
+        classifications: [],
+        subClassifications: [],
       };
       const action = receiveDomains(['US_TEST-SUBTEST', 'UK_TEST-SUBTEST2'])
       const newState = domainsReducer(oldState, action);
 
       expect(newState).toEqual({
         rawDomains: ['US_TEST-SUBTEST', 'UK_TEST-SUBTEST2'],
+        countries: ['US', 'UK'],
+        classifications: ['TEST'],
+        subClassifications: ['SUBTEST', 'SUBTEST2'],
       })
     });
   })
