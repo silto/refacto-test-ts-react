@@ -1,5 +1,6 @@
 # Refactoring Kata Test
 
+
 ## Introduction
 
 We have a `FilterDomain` component in `src/components/DomainFilter/DomainFilter.component.tsx` which renders a cluster of 3 select inputs allowing the user to filter by `domain`.
