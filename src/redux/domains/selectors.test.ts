@@ -4,10 +4,12 @@ import { AppState } from "../store";
 
 describe('selectors', () => {
   const state: AppState = {
-    domains: [
-      'SU_PE-RTE',
-      'ST_TE_STT'
-    ]
+    domains: {
+      rawDomains: [
+        'SU_PE-RTE',
+        'ST_TE-STT'
+      ],
+    }
   }
 
   describe('getDomains', () => {
@@ -17,7 +19,7 @@ describe('selectors', () => {
 
       expect(domains).toEqual([
         'SU_PE-RTE',
-        'ST_TE_STT'
+        'ST_TE-STT'
       ])
     })
   })
